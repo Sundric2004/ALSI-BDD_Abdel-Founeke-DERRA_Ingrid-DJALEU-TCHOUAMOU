@@ -5,6 +5,7 @@ import streamlit as st
 import pandas as pd
 import mysql.connector
 from mysql.connector import Error
+from datetime import date
 
 # ------------------------------------------------------------------
 #  Configuration de la connexion à MySQL — À ADAPTER À TA MACHINE
@@ -12,7 +13,7 @@ from mysql.connector import Error
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "1@MySql",          # <-- mets ici le mot de passe de ton MySQL
+    "password": "1@MySql",          
     "database": "auto_ecole",
     "port": 3306,
 }
@@ -96,7 +97,12 @@ elif page == "Ajouter":
         neph = st.text_input("NEPH (12 chiffres)")
         nom = st.text_input("Nom")
         prenom = st.text_input("Prénom")
-        naissance = st.date_input("Date de naissance")
+        naissance = st.date_input(
+            "Date de naissance",
+            value=date(2005, 1, 1),
+            min_value=date(1940, 1, 1),
+            max_value=date.today(),
+        )
         email = st.text_input("Email")
         tel = st.text_input("Téléphone")
         adresse = st.text_input("Adresse")

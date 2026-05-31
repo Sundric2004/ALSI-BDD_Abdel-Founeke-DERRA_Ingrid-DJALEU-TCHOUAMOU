@@ -7,7 +7,7 @@ import mysql.connector
 from mysql.connector import Error
 
 # ------------------------------------------------------------------
-#  Configuration de la connexion à MySQL — À ADAPTER À TA MACHINE
+#  Configuration de la connexion à MySQL 
 # ------------------------------------------------------------------
 DB_CONFIG = {
     "host": "localhost",
